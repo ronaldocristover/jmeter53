@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">${__P(iterations,1)}</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration, 60)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/apigw/v5/api-gateway/apple/login-1" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;signature&quot;:&quot;f5dccb498de256a5ceb80d398f4ea21061e877e2e77cd660ca8148cb6bb60ec0&quot;,&#xd;
+	&quot;fcm_token&quot;:&quot;WIDYANDEVICEGATEWAY&quot;,&#xd;
+	&quot;device_type&quot;:&quot;ANDROID&quot;,&#xd;
+	&quot;device_name&quot;:&quot;samsung&quot;,&#xd;
+	&quot;email&quot;:&quot;muhammadwidyan36@gmail.com&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.52.57.92</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/apigw/v5/api-gateway/apple/login</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmRlOTcyNS0zNjhjLTQ4MDYtODViOS02YzZjM2YwNmFjOWUiLCJlbWFpbCI6Im11aGFtbWFkd2lkeWFuMzZAZ21haWwuY29tIiwibG9naW5TdGF0dXMiOnRydWUsInN1YnNjcmliZXJfaWQiOiIyMzg5NzQ5IiwiZnVsbG5hbWUiOiJNdWhhbW1hZCBXaWR5YW4gUmlhZGhpIEZha2hydW4iLCJkZXZpY2VJZCI6IldJRFlBTkRFVklDRUdBVEVXQVkiLCJpZCI6MywiZXhwIjoxNjE5MjU2NjQ5LCJpYXQiOjE2MTkwODM4NDksImlzcyI6IlVzZWVUVkdPIn0.e50zglkjdQ1EHVoVyM85PtEmHPkPIO7V71-QwK7gTk3vH6ONHoNpaudQVwF2VTymRLp7puHoWV_zmaRkga61dnIOQPBaV0weYo2fEEelOtcJvpKIX5v98vHUkUm8ZrR6AMoLlsdm3wMNsEsL-p8dMJAg2S0yi0AeRPmTNClwb6dZR9FqB1bh21CnfCVr0zEOd6JDn1ONG0WSCais3odMNFJjfpZiy-0UeyRvMAYwYJGb6Kayk8uMcpxncn3aSdVaabB7_pfVo_STXVzyEoVEnPXdIY9X1h-A5PBB9-yYLb7hz4sV4w1JY8W3DlOMmlARGUDukuU3mJhYBn_eRfeSTkpqYCNaLEwQC4HOQ4kfRLTNyw6-W7MJwX2z39VkkqBek0REVX7oSAgahg9iE8FWvSF3aF-VySm7-ufbJ4unhHZj2wFmlYEVwgBH_SQsoxfIF9ppovLxFgRH9pvI1QMRQ1saOu_iUoddFQV-y6V-xp-mvEbZ1T9LvFWzfs1-E5jhwrt91hj-2OHLHa6iZKnXt945AR2D0oCt5GY_lAWaJXtXrO3R1tG8W0Icj4QfpVQlsP41sHWZVnczkzhvViPwcjkgNNI3b4y-eIYHgX7plLZVBYXNTS4uUwh5sVCcTK2VPoqgFFDdA4HqVJrTW1E0UY7mjlLKArApVYux2jqkMho</stringProp>
+              </elementProp>
+              <elementProp name="Postman-Token" elementType="Header">
+                <stringProp name="Header.name">Postman-Token</stringProp>
+                <stringProp name="Header.value">bdc3ea37-5fd1-485c-a146-8b8cc3d18efc</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">PostmanRuntime/7.26.10</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/apigw/v5/api-gateway/google/login-2" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;signature&quot;:&quot;f5dccb498de256a5ceb80d398f4ea21061e877e2e77cd660ca8148cb6bb60ec0&quot;,&#xd;
+	&quot;fcm_token&quot;:&quot;WIDYANDEVICEGATEWAY&quot;,&#xd;
+	&quot;device_type&quot;:&quot;Android&quot;,&#xd;
+	&quot;device_name&quot;:&quot;samsung A9&quot;,&#xd;
+    &quot;id_token&quot;:&quot;eyJhbGciOiJSUzI1NiIsImtpZCI6ImRlOTU1NmFkNDY4MDMxMmMxMTdhZmFlZjI5MjBmNWY5OWE0Yzc5ZmQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJhenAiOiI5NTY5MjU5ODc3MjEtY28wcG9scTh1NWMxMWczbjN2Z3VyM3ZzZjE5OG5mOTAuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJhdWQiOiI5NTY5MjU5ODc3MjEtY28wcG9scTh1NWMxMWczbjN2Z3VyM3ZzZjE5OG5mOTAuYXBwcy5nb29nbGV1c2VyY29udGVudC5jb20iLCJzdWIiOiIxMTQ2MDQ2MzM1MzA5OTQ0NDAyMDQiLCJlbWFpbCI6Im11aGFtbWFkd2lkeWFuMzZAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsImF0X2hhc2giOiJSSTlsbkhFOURoOWpfX3h5NWN2TmVRIiwibmFtZSI6Ik11aGFtbWFkIFdpZHlhbiIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaTFCOU9UdmNiUlMwX24xRG0zNzd1Mk1DTlJnME96Y3lEUnpTUkxMUT1zOTYtYyIsImdpdmVuX25hbWUiOiJNdWhhbW1hZCIsImZhbWlseV9uYW1lIjoiV2lkeWFuIiwibG9jYWxlIjoiaWQiLCJpYXQiOjE2MTkwNTkxMTgsImV4cCI6MTYxOTA2MjcxOH0.UfpizgFh5xtV1jt55rjnURd-Ds5Ssl7-6ko_0x1sKL9ixTBqrmzYig9YAgfu_LyuH-XmsWAvKnPbrtZ5ttH1qcq9QfXPw8liaR0STEw7whOal6Y3etQbm6aw-BnGWv39ZaBA5avzdPcIaDeWTH33YPCB7nuO8wyMVr0Z7O7_wnkR5leeOX5ZqH79--UtlPD3dHT0kA4fWio8OxZp514EFP5eRYG-BXGMlpDMQUWMYlK4I7WK61Gh4bmj4BxR8hp3IqZJJ8tiIMtj7Dz39nxMR_OKHTxk-28VUqdybq7SDVRoA8rEgFZAnLxr8mFyZmnghBSJPUcb1l_HR22cina6yg&quot;&#xd;
+}&#xd;
+</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.52.57.92</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/apigw/v5/api-gateway/google/login</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmRlOTcyNS0zNjhjLTQ4MDYtODViOS02YzZjM2YwNmFjOWUiLCJlbWFpbCI6Im11aGFtbWFkd2lkeWFuMzZAZ21haWwuY29tIiwibG9naW5TdGF0dXMiOnRydWUsInN1YnNjcmliZXJfaWQiOiIyMzg5NzQ5IiwiZnVsbG5hbWUiOiJNdWhhbW1hZCBXaWR5YW4gUmlhZGhpIEZha2hydW4iLCJkZXZpY2VJZCI6IldJRFlBTkRFVklDRUdBVEVXQVkiLCJpZCI6MywiZXhwIjoxNjE5MjU2Nzg4LCJpYXQiOjE2MTkwODM5ODgsImlzcyI6IlVzZWVUVkdPIn0.T-EPQKoXVA48qUwJtHkhebbqtrHXxSAOX-cxABIXdSicsFmE3Qd6sK6Qq3fWxKimZIrVn1mrrdVHVezTGPSItTc7IEgpLy-3LUHhEcFRkxVQwO_DV83mZRL2e4inK5jh-8zPH5ueMybIXqyD80mFjRYm4S2i1BQ43PhLY59boq8adW1R3zEtLSLmERfRPIJVJLJh-AH4CuOCR5drafFZCUgBKfjVTMohFXBgo9cu2d-52_V1GKxZQLDmLctFu4V3HnqR-LVNG0Z4_L3Gk8X5T7ynbsZuv-VWuhq0maqMSxtIC9CHfb7OUI4DNu8SOAmMIBbVBIrk9jdz37AZ-32nsjkIH-1Wl6HLNmB8vYeBQRuKlj36jBhTZsu-y-w0zx4tmzgqgqCUQNZ54NMpE0rCEq6WwO_FD_lhtGUqzLSGxpBP_u6FaG1Y81suYlGvsUv0VsxXsIy5MKkLy0Ndb_f-VyeksfNSF1MXKSw1pliwlFn-Im2vbgslEBR6-tqymKx6sDUQud3mOijYUC_mCSxKaeKh0LxtQcSCDkSvIw4XC84LInV4I3q98TdXA3EwOfI6D83n-xdrQ4NpXqrYF-VoET4NJM0O9yRs0wbV43zh99630aE9dVSk6vN3-LwHA1503pHhJRPhqbCn09dLSm1EYW4xc4jmyijtEhWAZ0p3JV8</stringProp>
+              </elementProp>
+              <elementProp name="Postman-Token" elementType="Header">
+                <stringProp name="Header.name">Postman-Token</stringProp>
+                <stringProp name="Header.value">29540084-a199-4917-8f1f-46808b41d52e</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">PostmanRuntime/7.26.10</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/apigw/v5/api-gateway/register/device-4" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;device_id&quot;:&quot;WIDYANDEVICEGATEWAY&quot;,&#xd;
+	&quot;fcm_token&quot;:&quot;WIDYANDEVICEGATEWAY&quot;,&#xd;
+	&quot;device_type&quot;:&quot;Android&quot;,&#xd;
+	&quot;device_name&quot;:&quot;samsung&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.52.57.92</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/apigw/v5/api-gateway/register/device</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Keygen-Token" elementType="Header">
+                <stringProp name="Header.name">Keygen-Token</stringProp>
+                <stringProp name="Header.value">1+NoJByk0EKsoUSoRDeUmWxhTe2QB67kAqDjyZiKip27KDFzsZdaQzIQ/Y5AOwdwY6EYcJL9yoBefdnLWMJ+RC/L/PdSHe3WI68CQblBuAQRLpvfaK5pgGC4dKY8gh/YPCjE+zA2iZjxO+GAIHFjfR2+WaOEUsks+yNz4n6t2KEaZ5wWtJuPeg8VjayKQKQrQ53dHBPuJKqRQc0O7KOBFQ==</stringProp>
+              </elementProp>
+              <elementProp name="Postman-Token" elementType="Header">
+                <stringProp name="Header.name">Postman-Token</stringProp>
+                <stringProp name="Header.value">9903a4f6-329e-4b92-82cd-ff3737f4276b</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="Keygen" elementType="Header">
+                <stringProp name="Header.name">Keygen</stringProp>
+                <stringProp name="Header.value">OQD1matR0gSRbq5286OOv8tyUJEF9wFUWWkdCRc/lyk/+j5Lx2pkR/gMWHya7kGdB8zvagMMI0HX4NRPKas5i6D0WJyqU9Rj9GliphV7S39h7Z57HKSMjn7joiFB9GRT9w2aXf0/iuWDkfErVI6mJJ8lhgdiP5jjRfGfnRhlce2ci/FspxojC/ZpaALNRuUE3ac5qKfbdn3xdjYS9XUnXXP1kfAcjqsA6Rxm3FRdsLe+qdvnETdQgWGwwucH2TX0VgWLwSh7tlliNsR3TSSafF1ugUx5Y49vzsTieOrfebdA7sfrH142nNBuVtc5qqne3prBC62y+MszE8at7xqVug==</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">PostmanRuntime/7.26.10</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

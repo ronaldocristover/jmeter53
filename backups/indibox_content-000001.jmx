@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/content/v2/home/mobile-2" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stage.indibox.id</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/content/v2/home/mobile</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmRlOTcyNS0zNjhjLTQ4MDYtODViOS02YzZjM2YwNmFjOWUiLCJkZXZpY2VJZCI6IldJRFlBTkRFVklDRTczNiIsInVzZXJuYW1lIjoiTXVoYW1tYWQgV2lkeWFuIFJpYWRoaSBGYWtocnVuIiwiZW1haWwiOiJtdWhhbW1hZHdpZHlhbjM2QGdtYWlsLmNvbSIsImZjbVRva2VuIjoiV0lEWUFOREVWSUNFR0FURVdBWSIsInByb2ZpbGVQaG90byI6Im1pbmlvLWluZGlib3gtcGx1cy1zdGFnZS1pbmRpYm94LXBsdXMtc3RhZ2Uuc3RhZ2UtYXBwcy5wbGF5Y291cnQuaWQvdXNlcnMvZGVmYXVsdC5wbmciLCJpbmRpYm94VG9rZW4iOiIiLCJsb2dpblN0YXR1cyI6dHJ1ZSwiaWF0IjoxNjE4ODg5NjgwLCJleHAiOjE2MjE0ODE2ODAsImF1ZCI6Ijk3YjMzMTkzLTQzZmYtNGU1OC05MTI0LWIzYTliOWY3MmMzNCIsImlzcyI6InRlbGtvbWRldiJ9.WGNbhFbQndtiFUz1zSEw3cf9ou-Ilw17OZZ7t1QlDmKtwqfb4Ecjr2UFUA24d82B_q1sQSi3EuXs9sOgXMJcDRELJV_HzX26SBuCQL1V9jWMbu_kscDL3tUH2SBBTPWO3YCIdopakZi40C0kdXvQUsDU4PDrrNNUIvK0lJejqbuIENiwHzDrgORb6OB_PCcr3t-lq-zn3t2z4wh-p-8phaI7D0PVg13GrhSqXGSJXL_oQgcO-ZYqi8lfIQxkYD9HN1igZNeQ619yz7Xtdf2ub6oQLj-0shHeI9wyS1QnYwWt3yD4bvIIzSVGJS2BfC-s51kMfhQSmFD0i_ko5-6ophrbEZQdwa6NlqlbwQ_AiJqJoyaqWfbcjyXb9VHoSDlR0U8tAx7gJ4HFbtE-8rqTzZOQQpljQ5EITYod7ACyW7WX_NLUsZYMnYGtgWcnHfRwuTEh3hjyEgUjk9-5tdksz_NgMfVP-A_3NjUslB3WKHqI4rmX7W838KrDq9CjiqKPoRGb2dvpk9jg62C095dbQz6Ra8Ks0mBreeCLmqvHMBCwMkCnxrHznufHvHYheCLVD3KZp1MD6BIGMELIGZUKne5zfDb2Cyv4rOwzHs9Fjzr6dI_Cu6QWVhmOHSe_2uTGVyxp8xiA89rQftG5YNYDWK_dnczI1L5qg3uJ7_N2vig</stringProp>
+              </elementProp>
+              <elementProp name="Postman-Token" elementType="Header">
+                <stringProp name="Header.name">Postman-Token</stringProp>
+                <stringProp name="Header.value">4586f9d4-f8ce-43d8-8f8a-bbd6e4311c66</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">PostmanRuntime/7.26.10</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/content/v1/history-3" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+  &quot;contentId&quot;: &quot;83e25795-b615-4fa5-bb48-99b7955a3d7f&quot;,&#xd;
+  &quot;contentName&quot; : &quot;The Eye of Silence&quot;,&#xd;
+  &quot;watchTime&quot;: &quot;35000&quot;,&#xd;
+  &quot;lastRecordedWatchTime&quot;: &quot;32698&quot;,&#xd;
+  &quot;resource&quot;: &quot;indibox&quot;,&#xd;
+  &quot;featureName&quot; : &quot;vod&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stage.indibox.id</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/content/v1/history</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmRlOTcyNS0zNjhjLTQ4MDYtODViOS02YzZjM2YwNmFjOWUiLCJkZXZpY2VJZCI6IldJRFlBTkRFVklDRTczNiIsInVzZXJuYW1lIjoiTXVoYW1tYWQgV2lkeWFuIFJpYWRoaSBGYWtocnVuIiwiZW1haWwiOiJtdWhhbW1hZHdpZHlhbjM2QGdtYWlsLmNvbSIsImZjbVRva2VuIjoiV0lEWUFOREVWSUNFR0FURVdBWSIsInByb2ZpbGVQaG90byI6Im1pbmlvLWluZGlib3gtcGx1cy1zdGFnZS1pbmRpYm94LXBsdXMtc3RhZ2Uuc3RhZ2UtYXBwcy5wbGF5Y291cnQuaWQvdXNlcnMvZGVmYXVsdC5wbmciLCJpbmRpYm94VG9rZW4iOiIiLCJsb2dpblN0YXR1cyI6dHJ1ZSwiaWF0IjoxNjE4ODg5NjgwLCJleHAiOjE2MjE0ODE2ODAsImF1ZCI6Ijk3YjMzMTkzLTQzZmYtNGU1OC05MTI0LWIzYTliOWY3MmMzNCIsImlzcyI6InRlbGtvbWRldiJ9.WGNbhFbQndtiFUz1zSEw3cf9ou-Ilw17OZZ7t1QlDmKtwqfb4Ecjr2UFUA24d82B_q1sQSi3EuXs9sOgXMJcDRELJV_HzX26SBuCQL1V9jWMbu_kscDL3tUH2SBBTPWO3YCIdopakZi40C0kdXvQUsDU4PDrrNNUIvK0lJejqbuIENiwHzDrgORb6OB_PCcr3t-lq-zn3t2z4wh-p-8phaI7D0PVg13GrhSqXGSJXL_oQgcO-ZYqi8lfIQxkYD9HN1igZNeQ619yz7Xtdf2ub6oQLj-0shHeI9wyS1QnYwWt3yD4bvIIzSVGJS2BfC-s51kMfhQSmFD0i_ko5-6ophrbEZQdwa6NlqlbwQ_AiJqJoyaqWfbcjyXb9VHoSDlR0U8tAx7gJ4HFbtE-8rqTzZOQQpljQ5EITYod7ACyW7WX_NLUsZYMnYGtgWcnHfRwuTEh3hjyEgUjk9-5tdksz_NgMfVP-A_3NjUslB3WKHqI4rmX7W838KrDq9CjiqKPoRGb2dvpk9jg62C095dbQz6Ra8Ks0mBreeCLmqvHMBCwMkCnxrHznufHvHYheCLVD3KZp1MD6BIGMELIGZUKne5zfDb2Cyv4rOwzHs9Fjzr6dI_Cu6QWVhmOHSe_2uTGVyxp8xiA89rQftG5YNYDWK_dnczI1L5qg3uJ7_N2vig</stringProp>
+              </elementProp>
+              <elementProp name="Postman-Token" elementType="Header">
+                <stringProp name="Header.name">Postman-Token</stringProp>
+                <stringProp name="Header.value">64394dc6-3c24-42e6-bdc8-65b427b9bbc6</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">PostmanRuntime/7.26.10</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/content/v1/movie-category-4" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="page" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">page</stringProp>
+                <stringProp name="Argument.value">1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stage.indibox.id</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/content/v1/movie-category</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmRlOTcyNS0zNjhjLTQ4MDYtODViOS02YzZjM2YwNmFjOWUiLCJkZXZpY2VJZCI6IldJRFlBTkRFVklDRTczNiIsInVzZXJuYW1lIjoiTXVoYW1tYWQgV2lkeWFuIFJpYWRoaSBGYWtocnVuIiwiZW1haWwiOiJtdWhhbW1hZHdpZHlhbjM2QGdtYWlsLmNvbSIsImZjbVRva2VuIjoiV0lEWUFOREVWSUNFR0FURVdBWSIsInByb2ZpbGVQaG90byI6Im1pbmlvLWluZGlib3gtcGx1cy1zdGFnZS1pbmRpYm94LXBsdXMtc3RhZ2Uuc3RhZ2UtYXBwcy5wbGF5Y291cnQuaWQvdXNlcnMvZGVmYXVsdC5wbmciLCJpbmRpYm94VG9rZW4iOiIiLCJsb2dpblN0YXR1cyI6dHJ1ZSwiaWF0IjoxNjE4ODg5NjgwLCJleHAiOjE2MjE0ODE2ODAsImF1ZCI6Ijk3YjMzMTkzLTQzZmYtNGU1OC05MTI0LWIzYTliOWY3MmMzNCIsImlzcyI6InRlbGtvbWRldiJ9.WGNbhFbQndtiFUz1zSEw3cf9ou-Ilw17OZZ7t1QlDmKtwqfb4Ecjr2UFUA24d82B_q1sQSi3EuXs9sOgXMJcDRELJV_HzX26SBuCQL1V9jWMbu_kscDL3tUH2SBBTPWO3YCIdopakZi40C0kdXvQUsDU4PDrrNNUIvK0lJejqbuIENiwHzDrgORb6OB_PCcr3t-lq-zn3t2z4wh-p-8phaI7D0PVg13GrhSqXGSJXL_oQgcO-ZYqi8lfIQxkYD9HN1igZNeQ619yz7Xtdf2ub6oQLj-0shHeI9wyS1QnYwWt3yD4bvIIzSVGJS2BfC-s51kMfhQSmFD0i_ko5-6ophrbEZQdwa6NlqlbwQ_AiJqJoyaqWfbcjyXb9VHoSDlR0U8tAx7gJ4HFbtE-8rqTzZOQQpljQ5EITYod7ACyW7WX_NLUsZYMnYGtgWcnHfRwuTEh3hjyEgUjk9-5tdksz_NgMfVP-A_3NjUslB3WKHqI4rmX7W838KrDq9CjiqKPoRGb2dvpk9jg62C095dbQz6Ra8Ks0mBreeCLmqvHMBCwMkCnxrHznufHvHYheCLVD3KZp1MD6BIGMELIGZUKne5zfDb2Cyv4rOwzHs9Fjzr6dI_Cu6QWVhmOHSe_2uTGVyxp8xiA89rQftG5YNYDWK_dnczI1L5qg3uJ7_N2vig</stringProp>
+              </elementProp>
+              <elementProp name="Postman-Token" elementType="Header">
+                <stringProp name="Header.name">Postman-Token</stringProp>
+                <stringProp name="Header.value">1f8b679e-0b63-40c1-9481-d8f161bf623d</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">PostmanRuntime/7.26.10</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/content/v1/movie/7-5" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="page" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.name">page</stringProp>
+                <stringProp name="Argument.value">1</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stage.indibox.id</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/content/v1/movie/7</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmRlOTcyNS0zNjhjLTQ4MDYtODViOS02YzZjM2YwNmFjOWUiLCJkZXZpY2VJZCI6IldJRFlBTkRFVklDRTczNiIsInVzZXJuYW1lIjoiTXVoYW1tYWQgV2lkeWFuIFJpYWRoaSBGYWtocnVuIiwiZW1haWwiOiJtdWhhbW1hZHdpZHlhbjM2QGdtYWlsLmNvbSIsImZjbVRva2VuIjoiV0lEWUFOREVWSUNFR0FURVdBWSIsInByb2ZpbGVQaG90byI6Im1pbmlvLWluZGlib3gtcGx1cy1zdGFnZS1pbmRpYm94LXBsdXMtc3RhZ2Uuc3RhZ2UtYXBwcy5wbGF5Y291cnQuaWQvdXNlcnMvZGVmYXVsdC5wbmciLCJpbmRpYm94VG9rZW4iOiIiLCJsb2dpblN0YXR1cyI6dHJ1ZSwiaWF0IjoxNjE4ODg5NjgwLCJleHAiOjE2MjE0ODE2ODAsImF1ZCI6Ijk3YjMzMTkzLTQzZmYtNGU1OC05MTI0LWIzYTliOWY3MmMzNCIsImlzcyI6InRlbGtvbWRldiJ9.WGNbhFbQndtiFUz1zSEw3cf9ou-Ilw17OZZ7t1QlDmKtwqfb4Ecjr2UFUA24d82B_q1sQSi3EuXs9sOgXMJcDRELJV_HzX26SBuCQL1V9jWMbu_kscDL3tUH2SBBTPWO3YCIdopakZi40C0kdXvQUsDU4PDrrNNUIvK0lJejqbuIENiwHzDrgORb6OB_PCcr3t-lq-zn3t2z4wh-p-8phaI7D0PVg13GrhSqXGSJXL_oQgcO-ZYqi8lfIQxkYD9HN1igZNeQ619yz7Xtdf2ub6oQLj-0shHeI9wyS1QnYwWt3yD4bvIIzSVGJS2BfC-s51kMfhQSmFD0i_ko5-6ophrbEZQdwa6NlqlbwQ_AiJqJoyaqWfbcjyXb9VHoSDlR0U8tAx7gJ4HFbtE-8rqTzZOQQpljQ5EITYod7ACyW7WX_NLUsZYMnYGtgWcnHfRwuTEh3hjyEgUjk9-5tdksz_NgMfVP-A_3NjUslB3WKHqI4rmX7W838KrDq9CjiqKPoRGb2dvpk9jg62C095dbQz6Ra8Ks0mBreeCLmqvHMBCwMkCnxrHznufHvHYheCLVD3KZp1MD6BIGMELIGZUKne5zfDb2Cyv4rOwzHs9Fjzr6dI_Cu6QWVhmOHSe_2uTGVyxp8xiA89rQftG5YNYDWK_dnczI1L5qg3uJ7_N2vig</stringProp>
+              </elementProp>
+              <elementProp name="Postman-Token" elementType="Header">
+                <stringProp name="Header.name">Postman-Token</stringProp>
+                <stringProp name="Header.value">64c97230-eed6-4fc6-8225-45a56d24d493</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">PostmanRuntime/7.26.10</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/content/v2/movie-detail/83e25795-b615-4fa5-bb48-99b7955a3d7f-6" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stage.indibox.id</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/content/v2/movie-detail/83e25795-b615-4fa5-bb48-99b7955a3d7f</stringProp>
+          <stringProp name="HTTPSampler.method">GET</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmRlOTcyNS0zNjhjLTQ4MDYtODViOS02YzZjM2YwNmFjOWUiLCJkZXZpY2VJZCI6IldJRFlBTkRFVklDRTczNiIsInVzZXJuYW1lIjoiTXVoYW1tYWQgV2lkeWFuIFJpYWRoaSBGYWtocnVuIiwiZW1haWwiOiJtdWhhbW1hZHdpZHlhbjM2QGdtYWlsLmNvbSIsImZjbVRva2VuIjoiV0lEWUFOREVWSUNFR0FURVdBWSIsInByb2ZpbGVQaG90byI6Im1pbmlvLWluZGlib3gtcGx1cy1zdGFnZS1pbmRpYm94LXBsdXMtc3RhZ2Uuc3RhZ2UtYXBwcy5wbGF5Y291cnQuaWQvdXNlcnMvZGVmYXVsdC5wbmciLCJpbmRpYm94VG9rZW4iOiIiLCJsb2dpblN0YXR1cyI6dHJ1ZSwiaWF0IjoxNjE4ODg5NjgwLCJleHAiOjE2MjE0ODE2ODAsImF1ZCI6Ijk3YjMzMTkzLTQzZmYtNGU1OC05MTI0LWIzYTliOWY3MmMzNCIsImlzcyI6InRlbGtvbWRldiJ9.WGNbhFbQndtiFUz1zSEw3cf9ou-Ilw17OZZ7t1QlDmKtwqfb4Ecjr2UFUA24d82B_q1sQSi3EuXs9sOgXMJcDRELJV_HzX26SBuCQL1V9jWMbu_kscDL3tUH2SBBTPWO3YCIdopakZi40C0kdXvQUsDU4PDrrNNUIvK0lJejqbuIENiwHzDrgORb6OB_PCcr3t-lq-zn3t2z4wh-p-8phaI7D0PVg13GrhSqXGSJXL_oQgcO-ZYqi8lfIQxkYD9HN1igZNeQ619yz7Xtdf2ub6oQLj-0shHeI9wyS1QnYwWt3yD4bvIIzSVGJS2BfC-s51kMfhQSmFD0i_ko5-6ophrbEZQdwa6NlqlbwQ_AiJqJoyaqWfbcjyXb9VHoSDlR0U8tAx7gJ4HFbtE-8rqTzZOQQpljQ5EITYod7ACyW7WX_NLUsZYMnYGtgWcnHfRwuTEh3hjyEgUjk9-5tdksz_NgMfVP-A_3NjUslB3WKHqI4rmX7W838KrDq9CjiqKPoRGb2dvpk9jg62C095dbQz6Ra8Ks0mBreeCLmqvHMBCwMkCnxrHznufHvHYheCLVD3KZp1MD6BIGMELIGZUKne5zfDb2Cyv4rOwzHs9Fjzr6dI_Cu6QWVhmOHSe_2uTGVyxp8xiA89rQftG5YNYDWK_dnczI1L5qg3uJ7_N2vig</stringProp>
+              </elementProp>
+              <elementProp name="Postman-Token" elementType="Header">
+                <stringProp name="Header.name">Postman-Token</stringProp>
+                <stringProp name="Header.value">a582d64c-9e79-486c-b864-c45c164d37f4</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">PostmanRuntime/7.26.10</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/content/v1/play/bd74fb64-e317-477b-ac4f-cdd8e4ab7693-7" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+	&quot;mac&quot;:&quot;FC:D5:D9:1E:7F:58&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">stage.indibox.id</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/content/v1/play/bd74fb64-e317-477b-ac4f-cdd8e4ab7693</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Authorization" elementType="Header">
+                <stringProp name="Header.name">Authorization</stringProp>
+                <stringProp name="Header.value">Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmRlOTcyNS0zNjhjLTQ4MDYtODViOS02YzZjM2YwNmFjOWUiLCJkZXZpY2VJZCI6IldJRFlBTkRFVklDRTczNiIsInVzZXJuYW1lIjoiTXVoYW1tYWQgV2lkeWFuIFJpYWRoaSBGYWtocnVuIiwiZW1haWwiOiJtdWhhbW1hZHdpZHlhbjM2QGdtYWlsLmNvbSIsImZjbVRva2VuIjoiV0lEWUFOREVWSUNFR0FURVdBWSIsInByb2ZpbGVQaG90byI6Im1pbmlvLWluZGlib3gtcGx1cy1zdGFnZS1pbmRpYm94LXBsdXMtc3RhZ2Uuc3RhZ2UtYXBwcy5wbGF5Y291cnQuaWQvdXNlcnMvZGVmYXVsdC5wbmciLCJpbmRpYm94VG9rZW4iOiIiLCJsb2dpblN0YXR1cyI6dHJ1ZSwiaWF0IjoxNjE4ODg5NjgwLCJleHAiOjE2MjE0ODE2ODAsImF1ZCI6Ijk3YjMzMTkzLTQzZmYtNGU1OC05MTI0LWIzYTliOWY3MmMzNCIsImlzcyI6InRlbGtvbWRldiJ9.WGNbhFbQndtiFUz1zSEw3cf9ou-Ilw17OZZ7t1QlDmKtwqfb4Ecjr2UFUA24d82B_q1sQSi3EuXs9sOgXMJcDRELJV_HzX26SBuCQL1V9jWMbu_kscDL3tUH2SBBTPWO3YCIdopakZi40C0kdXvQUsDU4PDrrNNUIvK0lJejqbuIENiwHzDrgORb6OB_PCcr3t-lq-zn3t2z4wh-p-8phaI7D0PVg13GrhSqXGSJXL_oQgcO-ZYqi8lfIQxkYD9HN1igZNeQ619yz7Xtdf2ub6oQLj-0shHeI9wyS1QnYwWt3yD4bvIIzSVGJS2BfC-s51kMfhQSmFD0i_ko5-6ophrbEZQdwa6NlqlbwQ_AiJqJoyaqWfbcjyXb9VHoSDlR0U8tAx7gJ4HFbtE-8rqTzZOQQpljQ5EITYod7ACyW7WX_NLUsZYMnYGtgWcnHfRwuTEh3hjyEgUjk9-5tdksz_NgMfVP-A_3NjUslB3WKHqI4rmX7W838KrDq9CjiqKPoRGb2dvpk9jg62C095dbQz6Ra8Ks0mBreeCLmqvHMBCwMkCnxrHznufHvHYheCLVD3KZp1MD6BIGMELIGZUKne5zfDb2Cyv4rOwzHs9Fjzr6dI_Cu6QWVhmOHSe_2uTGVyxp8xiA89rQftG5YNYDWK_dnczI1L5qg3uJ7_N2vig</stringProp>
+              </elementProp>
+              <elementProp name="Postman-Token" elementType="Header">
+                <stringProp name="Header.name">Postman-Token</stringProp>
+                <stringProp name="Header.value">2dc76510-3479-4ba0-9452-a90f12c7476a</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">PostmanRuntime/7.26.10</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>

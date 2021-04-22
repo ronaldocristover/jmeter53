@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Thread Group" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">${__P(iterations,-1)}</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(threads,1)}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${__P(duration, 60)}</stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="/apigw/v5/api-gateway/refresh-token-6" enabled="true">
+          <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">{&#xd;
+    &quot;refresh_token&quot;: &quot;eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0NmRlOTcyNS0zNjhjLTQ4MDYtODViOS02YzZjM2YwNmFjOWUiLCJlbWFpbCI6Im11aGFtbWFkd2lkeWFuMzZAZ21haWwuY29tIiwibG9naW5TdGF0dXMiOnRydWUsInN1YnNjcmliZXJfaWQiOiIyMzg5NzQ5IiwiZnVsbG5hbWUiOiJNdWhhbW1hZCBXaWR5YW4gUmlhZGhpIEZha2hydW4iLCJkZXZpY2VJZCI6IldJRFlBTkRFVklDRUdBVEVXQVkiLCJpZCI6MywiZXhwIjoxNjE5MDEyNDQzLCJpYXQiOjE2MTg4Mzk2NDMsImlzcyI6IlVzZWVUVkdPIn0.LDvVFunsP3L6v626H-SddFB3YCm_LFKVQRtHhfWjHWW1ui9KGmWh6XJlCye3uFtxG0j7CJfDlFgpj78k1ZSNZAxh3IPgVrsdbUOppgq1_LZBVx5p4-TMplZMoHUdV46HhEyG1aawHEUSOJLoTuIo1nV9jh6h_FjqWa-xI3oWbLA8BgtuBDQQFYsjPahyyYScCITrZwxgX0vwaJ03trWu5T_2MDIv-AeDYNbUtIf7okpZldIUbS2ao0N4KpIUu0eKMcebl010oJ7PiskKYPR9qV0ZKkdhvrRzA5frAY6wYZaH3OBCb7y8nMwrm1uUKpg1wK22xDfPl-szLfNzQDdJk47zXIx-LVE_mmQLzzT3Sl0yVS_ZcR5XmQTKkUI9PEAUv5f61R3Yx_nam7zV_Y919NzJGiRkmsY4PePVhSZazzTsvQKb9WJcCrt4iZgrlPquBtuMuKnaur3kWVyXgX2NUbMKCHPPEV6tGOqT39XyObUvHm4ukNFfmVxfCd6Pz30Hzicisi5EgJogFdb3oC6L6FxvzqQs2vJcPgamWTK2vGsqHF4ReMIkfJt709El7bIqLUtLrErFG1ZwTAW2GVA0MZw7xHUi_WIhz0-i2LfZqL6gH1NpmI_V3fmblTaPUB7zucsQzIjHbAYWNl4xSLIQ202ItRMPmvG5RaAzxQojeac&quot;,&#xd;
+    &quot;device_id&quot;: &quot;WIDYANDEVICEGATEWAY&quot;&#xd;
+}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">10.52.57.92</stringProp>
+          <stringProp name="HTTPSampler.port">8080</stringProp>
+          <stringProp name="HTTPSampler.protocol">http</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+          <stringProp name="HTTPSampler.path">/apigw/v5/api-gateway/refresh-token</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
+          <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+          <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+          <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+          <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+          <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+        </HTTPSamplerProxy>
+        <hashTree>
+          <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+            <collectionProp name="HeaderManager.headers">
+              <elementProp name="Postman-Token" elementType="Header">
+                <stringProp name="Header.name">Postman-Token</stringProp>
+                <stringProp name="Header.value">0581891e-1170-44a9-bf85-7366193b30b2</stringProp>
+              </elementProp>
+              <elementProp name="Content-Type" elementType="Header">
+                <stringProp name="Header.name">Content-Type</stringProp>
+                <stringProp name="Header.value">application/json</stringProp>
+              </elementProp>
+              <elementProp name="Accept-Encoding" elementType="Header">
+                <stringProp name="Header.name">Accept-Encoding</stringProp>
+                <stringProp name="Header.value">gzip, deflate, br</stringProp>
+              </elementProp>
+              <elementProp name="User-Agent" elementType="Header">
+                <stringProp name="Header.name">User-Agent</stringProp>
+                <stringProp name="Header.value">PostmanRuntime/7.26.10</stringProp>
+              </elementProp>
+              <elementProp name="Accept" elementType="Header">
+                <stringProp name="Header.name">Accept</stringProp>
+                <stringProp name="Header.value">*/*</stringProp>
+              </elementProp>
+            </collectionProp>
+          </HeaderManager>
+          <hashTree/>
+        </hashTree>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
